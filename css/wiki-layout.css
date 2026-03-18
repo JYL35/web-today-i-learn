@@ -6,16 +6,21 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
-  height: 56px;
+  height: 60px;
   background-color: var(--nav-bg-color);
-  border-bottom: 1px solid var(--divider-color);
+  border-bottom: 2px solid var(--divider-color);
   z-index: 10;
 }
 
 .nav-logo {
   font-family: "Jua", serif;
-  font-size: 1.4rem;
-  color: var(--primary-color);
+  font-size: 1.6rem;
+  color: var(--font-default-color);
+}
+
+.nav-logo::after {
+  content: " 🐾";
+  font-size: 1.2rem;
 }
 
 .nav-links {
@@ -27,36 +32,45 @@
 .nav-links a {
   text-decoration: none;
   color: var(--font-default-color);
-  font-size: 0.9rem;
-  transition: color 0.2s;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.2s;
 }
 
 .nav-links a:hover {
   color: var(--primary-color);
+  transform: translateY(-2px);
 }
 
 /* 프로필 히어로 */
 .hero {
   display: flex;
   justify-content: center;
-  padding: 64px 32px;
+  padding: 80px 32px;
   background-color: var(--hero-bg-color);
+  border-bottom: 1px solid var(--divider-color);
 }
 
 .profile-card {
   display: flex;
   align-items: center;
-  gap: 32px;
-  max-width: 600px;
+  gap: 40px;
+  max-width: 650px;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
 .profile-image {
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  background-color: #ddd;
+  background-color: #fff;
   flex-shrink: 0;
   overflow: hidden;
+  border: 5px solid #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .profile-image img {
@@ -66,24 +80,26 @@
 }
 
 .profile-info h1 {
-  font-size: 2rem;
-  margin-bottom: 8px;
+  font-size: 2.5rem;
+  color: var(--font-emphasis-color);
+  margin-bottom: 12px;
 }
 
 .profile-info .tagline {
-  color: #777;
-  line-height: 1.6;
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 /* 메인 콘텐츠 */
 main {
-  max-width: 780px;
+  max-width: 850px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 .content-section {
-  padding: 48px 0;
+  padding: 60px 0;
   border-bottom: 1px solid var(--divider-color);
 }
 
@@ -92,53 +108,81 @@ main {
 }
 
 .content-section h2 {
-  font-size: 1.6rem;
-  margin-bottom: 16px;
+  font-size: 1.8rem;
+  color: var(--font-emphasis-color);
+  margin-bottom: 24px;
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 3px solid var(--primary-color);
 }
 
 .content-section > p,
 .section-desc {
-  color: #666;
+  color: #555;
   line-height: 1.8;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
+  font-size: 1.05rem;
+}
+
+.content-section a {
+  color: #d2691e;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 /* 갤러리 그리드 */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 15px;
+  padding: 20px;
+  background-color: var(--card-bg-color);
+  border-radius: 15px;
+  border: 1px solid var(--divider-color);
 }
 
 .gallery-grid img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
 
 /* 인생 작품 카드 */
 .works-list {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 30px;
 }
 
 .work-card {
   display: flex;
-  gap: 20px;
-  padding: 20px;
-  border-radius: 8px;
+  gap: 25px;
+  padding: 25px;
+  border-radius: 15px;
   background-color: var(--card-bg-color);
+  border: 1px solid var(--divider-color);
+  transition: box-shadow 0.3s;
+}
+
+.work-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .work-thumbnail {
-  width: 140px;
-  height: 180px;
-  background-color: #ddd;
-  border-radius: 4px;
+  width: 150px;
+  height: 200px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
   flex-shrink: 0;
   overflow: hidden;
+  border: 1px solid #eee;
 }
 
 .work-thumbnail img {
@@ -148,13 +192,15 @@ main {
 }
 
 .work-info h3 {
-  font-size: 1.2rem;
-  margin-bottom: 8px;
+  font-size: 1.3rem;
+  color: var(--font-emphasis-color);
+  margin-bottom: 12px;
 }
 
 .work-info p {
   color: #666;
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: 0.95rem;
 }
 
 /* TIL */
@@ -165,25 +211,30 @@ main {
 }
 
 .til-item {
-  padding: 20px;
-  border-left: 3px solid var(--primary-color);
+  padding: 25px;
+  border-left: 5px solid var(--primary-color);
   background-color: var(--card-bg-color);
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 15px 15px 0;
+  border-top: 1px solid #eee;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
 .til-item time {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #999;
+  font-weight: 700;
 }
 
 .til-item h3 {
-  font-size: 1.1rem;
-  margin: 8px 0;
+  font-size: 1.2rem;
+  color: var(--font-emphasis-color);
+  margin: 10px 0;
 }
 
 .til-item p {
   color: #666;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* 방명록 */
@@ -267,21 +318,31 @@ footer {
 /* 기본 정보 테이블 */
 .info-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate; /* 둥근 테두리를 위해 변경 */
+  border-spacing: 0;
+  border: 1px solid var(--divider-color);
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: var(--card-bg-color);
 }
 
 .info-table th,
 .info-table td {
-  padding: 12px 16px;
+  padding: 16px 20px;
   border-bottom: 1px solid var(--divider-color);
   text-align: left;
 }
 
+.info-table tr:last-child th,
+.info-table tr:last-child td {
+  border-bottom: none;
+}
+
 .info-table th {
-  width: 140px;
-  color: #555;
+  width: 160px;
+  color: var(--font-default-color);
   font-weight: 700;
-  background-color: var(--card-bg-color);
+  background-color: #fdf5e6;
 }
 
 .info-table td {
@@ -289,15 +350,16 @@ footer {
 }
 
 /* TIL 작성 폼 */
-.til-form {
+#til-form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding: 24px;
-  margin-bottom: 32px;
-  border: 1px solid var(--divider-color);
-  border-radius: 8px;
-  background-color: var(--card-bg-color);
+  gap: 16px;
+  padding: 30px;
+  margin-bottom: 40px;
+  border: 2px solid var(--primary-color);
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .til-form .form-group {
@@ -307,37 +369,48 @@ footer {
 }
 
 .til-form label {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  color: #555;
+  color: var(--font-default-color);
 }
 
 .til-form input,
 .til-form textarea {
-  padding: 10px 12px;
+  padding: 12px 15px;
   border: 1px solid var(--divider-color);
-  border-radius: 6px;
+  border-radius: 8px;
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  background-color: #fdfdfd;
+}
+
+.til-form input:focus,
+.til-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(255, 183, 178, 0.3);
 }
 
 .til-form textarea {
-  min-height: 80px;
+  min-height: 120px;
   resize: vertical;
 }
 
 .til-form .form-actions {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   justify-content: flex-end;
+  margin-top: 10px;
 }
 
 .til-form button {
-  padding: 8px 20px;
+  padding: 10px 25px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background-color 0.2s;
 }
 
 .til-form button[type="submit"] {
@@ -345,9 +418,17 @@ footer {
   color: #fff;
 }
 
+.til-form button[type="submit"]:hover {
+  background-color: #ff9e99;
+}
+
 .til-form button[type="reset"] {
   background-color: #eee;
   color: #666;
+}
+
+.til-form button[type="reset"]:hover {
+  background-color: #ddd;
 }
 
 /* 영상 삽입 */
@@ -362,10 +443,11 @@ footer {
 
 /* 변수 */
 :root {
-  --primary-color: #4a7c59;
-  --nav-bg-color: #fff;
-  --hero-bg-color: #f8faf8;
-  --card-bg-color: #fafafa;
-  --divider-color: #e8e8e8;
-  --font-default-color: #333;
+  --primary-color: #ffb7b2;
+  --nav-bg-color: #fffaf0;
+  --hero-bg-color: #fdf5e6;
+  --card-bg-color: #ffffff;
+  --divider-color: #e0d7ccc;
+  --font-default-color: #4a3b31;
+  --font-emphasis-color: #222222;
 }
