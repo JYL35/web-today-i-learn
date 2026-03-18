@@ -4,9 +4,26 @@
 
 const tilForm = document.querySelector("#til-form");
 const tilList = document.querySelector("#til-list");
+const galleryImages = document.querySelector(".gallery-grid img");
 
 tilForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   // TODO: 입력값을 가져와서 새 TIL 항목을 만들어 목록에 추가하세요
+  const dateValue = document.querySelector("#til-date").value;
+  const titleValue = document.querySelector("#til-title").value;
+  const contentValue = document.querySelector("#til-content").value;
+
+  const newTilItem = document.createElement("article");
+  newTilItem.classList.add("til-item");
+
+  newTilItem.innerHTML = `
+    <time>${dateValue}</time>
+    <h3>${titleValue}</h3>
+    <p>${contentValue.replace(/\n/g, "<br>")}</p>
+  `;
+  tilList.prepend(newTilItem);
+
+  tilForm.reset();
+  alert("새로운 TIL이 등록되었습니다. 🐾");
 });
